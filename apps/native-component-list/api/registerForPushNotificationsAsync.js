@@ -16,7 +16,8 @@ export default async function registerForPushNotificationsAsync() {
 
   console.log(Constants.manifest.id);
 
-  let categoryId = Constants.manifest.id + 'super-category';
+  let categoryId = Constants.manifest.id + ':' + 'super-category';
+  console.log("categoryId: ", categoryId);
 
   // POST the token to the Expo push server
   let response = await fetch(PUSH_ENDPOINT, {
@@ -31,7 +32,7 @@ export default async function registerForPushNotificationsAsync() {
         title: 'Welcome to Expo!',
         body: 'Native Component List is registered for push notifications.',
         data: { example: 'sample data' },
-        categoryId,
+        categoryId: categoryId,
       },
     ]),
   });
