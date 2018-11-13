@@ -210,7 +210,7 @@ export default {
   },
 
   // User passes set of actions titles.
-  createCategoryAsync(categoryId: string, actions: Array<ActionType>): Promise<void> {
+  createCategoryAsync(categoryId: string, actions: Array<ActionType>): Promise<null> {
     return ExponentNotifications.createCategoryAsync(categoryId, actions);
   },
 
