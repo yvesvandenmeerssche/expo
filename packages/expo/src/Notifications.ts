@@ -211,7 +211,7 @@ export default {
 
   // User passes set of actions titles.
   createCategoryAsync(categoryId: string, actions: Array<ActionType>): Promise<void> {
-    return ExponentNotifications.createCategory(categoryId, actions);
+    return ExponentNotifications.createCategoryAsync(categoryId, actions);
   },
 
   /* Re-export */
