@@ -280,9 +280,6 @@ PODS:
   - EXGL-CPP (1.1.0):
     - EXGL-CPP/UEXGL (= 1.1.0)
   - EXGL-CPP/UEXGL (1.1.0)
-  - EXGoogleSignIn (1.0.0):
-    - EXCore
-    - GoogleSignIn
   - EXImageLoaderInterface (1.1.0):
     - EXCore
   - EXLocalAuthentication (1.1.0):
@@ -320,12 +317,12 @@ PODS:
     - EXCore
   - Fabric (1.7.11)
   - FBAudienceNetwork (4.99.0)
-  - FBSDKCoreKit (4.37.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.37.0):
+  - FBSDKCoreKit (4.38.1):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.38.1):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.37.0):
-    - FBSDKCoreKit (~> 4.37.0)
+  - FBSDKShareKit (4.38.1):
+    - FBSDKCoreKit
   - Folly (2016.10.31.00):
     - boost-for-react-native
     - DoubleConversion
@@ -1087,7 +1084,6 @@ DEPENDENCIES:
   - EXFontInterface (from `../packages/expo-font-interface/ios`)
   - EXGL (from `../packages/expo-gl/ios`)
   - EXGL-CPP (from `../packages/expo-gl-cpp/cpp`)
-  - EXGoogleSignIn (from `../packages/expo-google-sign-in/ios`)
   - EXImageLoaderInterface (from `../packages/expo-image-loader-interface/ios`)
   - EXLocalAuthentication (from `../packages/expo-local-authentication/ios`)
   - EXLocalization (from `../packages/expo-localization/ios`)
@@ -1103,9 +1099,9 @@ DEPENDENCIES:
   - EXSMS (from `../packages/expo-sms/ios`)
   - Fabric (~> 1.6)
   - FBAudienceNetwork (= 4.99.0)
-  - FBSDKCoreKit (= 4.37.0)
-  - FBSDKLoginKit (= 4.37.0)
-  - FBSDKShareKit (= 4.37.0)
+  - FBSDKCoreKit (= 4.38.1)
+  - FBSDKLoginKit (= 4.38.1)
+  - FBSDKShareKit (= 4.38.1)
   - Folly (from `../react-native-lab/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../react-native-lab/react-native/third-party-podspecs/glog.podspec`)
   - Google-Maps-iOS-Utils (~> 2.1.0)
@@ -1454,8 +1450,6 @@ EXTERNAL SOURCES:
     :path: "../packages/expo-gl/ios"
   EXGL-CPP:
     :path: "../packages/expo-gl-cpp/cpp"
-  EXGoogleSignIn:
-    :path: "../packages/expo-google-sign-in/ios"
   EXImageLoaderInterface:
     :path: "../packages/expo-image-loader-interface/ios"
   EXLocalAuthentication:
@@ -1619,7 +1613,6 @@ SPEC CHECKSUMS:
   EXFontInterface: 06126ec4f6a67415426074c3383a82b241f087c1
   EXGL: 9a5dd454a7ed9660b25b71d82d8009ac9bd6f85a
   EXGL-CPP: 46b589a3ed0c59ae2e7f9434897b66cd8dd2e70c
-  EXGoogleSignIn: 62f3cf04db88d7628c73ae5850d65c407965d77d
   EXImageLoaderInterface: 3f460f6ff344ba6c4e00621806c0d1d76249cd8f
   EXLocalAuthentication: b70696613cb24d726d3c98a1818c22c481a46b01
   EXLocalization: 1243adc132eaad4793dd7e5b497135ad5d803441
@@ -1635,9 +1628,9 @@ SPEC CHECKSUMS:
   EXSMS: 2a2f1abfb2f37b686e892261678c70f39c9b7fa8
   Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
   FBAudienceNetwork: 80275c0a28574ff5ce820abdc251d05e07e6ae7a
-  FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
-  FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
-  FBSDKShareKit: 52e0083222c38e930eb6878007478326599195c3
+  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
+  FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
+  FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
@@ -1671,6 +1664,6 @@ SPEC CHECKSUMS:
   yogaABI30_0_0: 4c86e39466368a6b018b8b78aeb654b6620512a1
   yogaABI31_0_0: 7978689ddccec43cffd5914889304cf3b7fd7c77
 
-PODFILE CHECKSUM: f976f1913ee3e3825829e9322e995671b5298c62
+PODFILE CHECKSUM: 4063e77482ae1dc7956f62f26cdd08e69bcd1a85
 
 COCOAPODS: 1.5.3
