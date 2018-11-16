@@ -12,9 +12,11 @@ package com.facebook.react.bridge;
 
 import javax.annotation.Nullable;
 
+import expo.errors.HostApplicationCausedPlatformException;
+
 public class PromiseImpl implements Promise {
 
-  private static final String DEFAULT_ERROR = "EUNSPECIFIED";
+  private static final String DEFAULT_ERROR = "ERR_UNSPECIFIED";
 
   private @Nullable Callback mResolve;
   private @Nullable Callback mReject;
@@ -49,7 +51,11 @@ public class PromiseImpl implements Promise {
 
   @Override
   public void reject(Throwable e) {
-    reject(DEFAULT_ERROR, e.getMessage(), e);
+    String errorCode = DEFAULT_ERROR;
+    if (e instanceof HostApplicationCausedPlatformException) {
+      errorCode = ((HostApplicationCausedPlatformException) e).getCode();
+    }
+    reject(errorCode, e.getMessage(), e);
   }
 
   @Override
@@ -64,8 +70,32 @@ public class PromiseImpl implements Promise {
       WritableNativeMap errorInfo = new WritableNativeMap();
       errorInfo.putString("code", code);
       errorInfo.putString("message", message);
-      // TODO(8850038): add the stack trace info in, need to figure out way to serialize that
+      if (e != null) {
+        errorInfo.putMap("platformError", serializeThrowable(e));
+      }
       mReject.invoke(errorInfo);
     }
+  }
+
+  private WritableMap serializeThrowable(Throwable e) {
+    WritableNativeMap errorInfo = new WritableNativeMap();
+    errorInfo.putString("className", e.getClass().getCanonicalName());
+    errorInfo.putString("message", e.getLocalizedMessage());
+
+    StackTraceElement[] stackTrace = e.getStackTrace();
+    if (stackTrace != null) {
+      WritableArray stackTraceArray = Arguments.createArray();
+      for (StackTraceElement element : stackTrace) {
+        stackTraceArray.pushString(element.toString());
+      }
+      errorInfo.putArray("stack", stackTraceArray);
+    }
+
+    Throwable cause = e.getCause();
+    if (cause != null) {
+      errorInfo.putMap("cause", serializeThrowable(cause));
+    }
+
+    return errorInfo;
   }
 }

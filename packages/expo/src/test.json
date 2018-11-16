@@ -1,0 +1,28 @@
+{
+  "framesToPop": 1,
+  "platformError": {
+    "stack": [
+      "0   Exponent                            0x0000000102fed7bb RCTJSErrorFromCodeMessageAndNSError + 155",
+      "1   Exponent                            0x0000000102f2bb13 __41-[RCTModuleMethod processMethodSignature]_block_invoke_2.218 + 179",
+      "2   Exponent                            0x00000001027011fa -[EXBrightness setSystemBrightnessModeAsync:rejecter:] + 122",
+      "3   CoreFoundation                      0x0000000110acc11c __invoking___ + 140",
+      "4   CoreFoundation                      0x0000000110ac95b5 -[NSInvocation invoke] + 325",
+      "5   CoreFoundation                      0x0000000110ac9a06 -[NSInvocation invokeWithTarget:] + 54",
+      "6   Exponent                            0x0000000102f2db7a -[RCTModuleMethod invokeWithBridge:module:arguments:] + 2810",
+      "7   Exponent                            0x0000000102f3b606 _ZN8facebook5reactL11invokeInnerEP9RCTBridgeP13RCTModuleDatajRKN5folly7dynamicE + 790",
+      "8   Exponent                            0x0000000102f3b11f _ZZN8facebook5react15RCTNativeModule6invokeEjON5folly7dynamicEiENK3$_0clEv + 127",
+      "9   Exponent                            0x0000000102f3b099 ___ZN8facebook5react15RCTNativeModule6invokeEjON5folly7dynamicEi_block_invoke + 25",
+      "10  libdispatch.dylib                   0x0000000111b345d1 _dispatch_call_block_and_release + 12",
+      "11  libdispatch.dylib                   0x0000000111b3563e _dispatch_client_callout + 8",
+      "12  libdispatch.dylib                   0x0000000111b3cb47 _dispatch_lane_serial_drain + 791",
+      "13  libdispatch.dylib                   0x0000000111b3d7c0 _dispatch_lane_invoke + 428",
+      "14  libdispatch.dylib                   0x0000000111b478b8 _dispatch_workloop_worker_thread + 733",
+      "15  libsystem_pthread.dylib             0x0000000111f20fd2 _pthread_wqthread + 980",
+      "16  libsystem_pthread.dylib             0x0000000111f20be9 start_wqthread + 13"
+    ]
+  },
+  "code": "ERR_TEST",
+  "line": 3209,
+  "column": 26,
+  "sourceURL": "http://127.0.0.1:19001/__generated__/AppEntry.bundle?platform=ios&dev=true&minify=false&hot=false&assetPlugin=%2FUsers%2Feric%2Fexpo%2Fexpo%2Fapps%2Fbrightness%2Fnode_modules%2Fexpo%2Ftools%2FhashAssetFiles"
+}
