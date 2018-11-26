@@ -10,6 +10,8 @@ This is the log of notable changes to the Expo client that are developer-facing.
 
 ### 🐛 Bug fixes
 
+- [iOS] Relaxed file system permissions when in Expokit by [@Szymon20000](https://github.com/Szymon20000)
+([#2808](https://github.com/expo/expo/pull/2808))
 - fix compression in ImagePicker by [@Szymon20000](https://github.com/Szymon20000) ([#2746](https://github.com/expo/expo/pull/2746))
 - decycle objects when sending logs to remote console by [@sjchmiela](https://github.com/sjchmiela) ([#2598](https://github.com/expo/expo/pull/2598))
 - unify linear gradient behavior across platforms by [@sjchmiela](https://github.com/sjchmiela) ([#2624](https://github.com/expo/expo/pull/2624))
