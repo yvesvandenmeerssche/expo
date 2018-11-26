@@ -7,6 +7,7 @@
 #import "EXSensorsManagerBinding.h"
 #import "EXConstantsBinding.h"
 #import "EXUnversioned.h"
+#import "EXScopedFilePermissionModule.h"
 
 #import "EXScopedReactNativeAdapter.h"
 #import "EXModuleRegistryBinding.h"
@@ -28,6 +29,9 @@
 
   EXScopedReactNativeAdapter *reactNativeAdapter = [[EXScopedReactNativeAdapter alloc] init];
   [moduleRegistry registerInternalModule:reactNativeAdapter];
+
+  EXScopedFilePermissionModule *filePermissionWielder = [[EXScopedFilePermissionModule alloc] init];
+  [moduleRegistry registerInternalModule:filePermissionWielder];
 
   NSArray<id<RCTBridgeModule>> *bridgeModules = [self extraModulesForModuleRegistry:moduleRegistry];
   return [bridgeModules arrayByAddingObject:[[EXModuleRegistryBinding alloc] initWithModuleRegistry:moduleRegistry]];
