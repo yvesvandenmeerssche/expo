@@ -136,6 +136,36 @@ platform :android do
     adb(command: "shell am start -n host.exp.exponent/host.exp.exponent.LauncherActivity")
   end
 
+  def devicefarm_run(arn)
+    JSON.load(`aws devicefarm --region us-west-2 get-run --arn #{arn}`)
+  end
+
+  def devicefarm_follow_run(arn)
+    until (run = devicefarm_run(arn)["run"]) && run["result"]  != "PENDING"
+      UI.message("Run pending...")
+      sleep 60
+    end
+    UI.shell_error!(run) unless run["result"] == "PASSED"
+    UI.success(run)
+  end
+
+  lane :devicefarm do |channel: git_branch|
+    ENV["TEST_SUITE_URI"] = "https://exp.host/@exponent_ci_bot/test-suite?release-channel=#{channel}"
+    ENV["TEST_CONFIG"] = {
+      includeModules:  '.*',
+      includeSdkVersions: ['UNVERSIONED'],
+      includeTestTypes: ['test-suite'],
+    }.to_json
+    upload_result = gradle(
+      project_dir: "android",
+      task: "app:devicefarmUpload",
+      flavor: "DevKernel",
+      build_type: "Debug"
+    )
+    result_info = upload_result.match(/View the INSTRUMENTATION run.*\/projects\/(?<project_id>.*)\/runs\/(?<run_id>.*)$/)
+    devicefarm_follow_run("arn:aws:devicefarm:us-west-2:274251141632:run:#{result_info[:project_id]}/#{result_info[:run_id]}")
+  end
+
   lane :build do |build_type: "Debug"|
     gradle(
       project_dir: "android",
