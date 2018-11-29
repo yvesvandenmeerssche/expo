@@ -54,6 +54,8 @@ function _createTypeScriptConfiguration() {
     compilerOptions: {
       // Explicitly specify "module" so that ts-jest doesn't provide its default
       module: 'es2015',
+      // Add type declarations for Node to match the test environment
+      types: ['jest', 'node'],
     },
   };
 

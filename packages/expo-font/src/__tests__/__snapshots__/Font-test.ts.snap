@@ -7,9 +7,7 @@ Array [
 ]
 `;
 
-exports[`loadAsync throws if downloading a font fails 1`] = `[Error: Failed to download asset for font "test-font"]`;
-
-exports[`loadAsync throws if loading a downloaded font fails 1`] = `[Error: Intentional error from FontLoader mock]`;
+exports[`loadAsync throws if downloading a font fails 1`] = `[Error: Failed to download asset for font "test-fontr"]`;
 
 exports[`processFontFamily defaults missing fonts to the system font 1`] = `
 Array [
