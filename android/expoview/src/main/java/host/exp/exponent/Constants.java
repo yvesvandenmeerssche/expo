@@ -117,7 +117,7 @@ public class Constants {
       ARE_REMOTE_UPDATES_ENABLED = appConstants.ARE_REMOTE_UPDATES_ENABLED;
       ANDROID_VERSION_CODE = appConstants.ANDROID_VERSION_CODE;
       FCM_ENABLED = appConstants.FCM_ENABLED;
-      ANALYTICS_ENABLED = !isShellApp();
+      ANALYTICS_ENABLED = !isStandaloneApp();
 
       embeddedResponses.addAll(appConstants.EMBEDDED_RESPONSES);
       EMBEDDED_RESPONSES = embeddedResponses;
@@ -139,7 +139,7 @@ public class Constants {
   public static final boolean WRITE_BUNDLE_TO_LOG = false;
   public static final boolean WAIT_FOR_DEBUGGER = false;
 
-  public static boolean isShellApp() {
+  public static boolean isStandaloneApp() {
     return INITIAL_URL != null;
   }
 
